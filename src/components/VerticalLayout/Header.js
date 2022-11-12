@@ -71,12 +71,12 @@ const Header = (props) => {
   function tToggle() {
     var body = document.body;
     if (window.screen.width <= 768) {
-    body.classList.toggle("sidebar-enable");
+      body.classList.toggle("sidebar-enable");
     } else {
-    body.classList.toggle("vertical-collpsed");
-    body.classList.toggle("sidebar-enable");
+      body.classList.toggle("vertical-collpsed");
+      body.classList.toggle("sidebar-enable");
     }
-}
+  }
 
   return (
     <React.Fragment>
@@ -164,17 +164,17 @@ const Header = (props) => {
                 </Link>
               </div>
               <button
-              type="button"
-              className="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
-              data-toggle="collapse"
-              onClick={() => {
-                tToggle()
-              }}
-              data-target="#topnav-menu-content"
-            >
-              <i className="fa fa-fw fa-bars"></i>
-            </button>
-              <Form className="app-search d-none d-lg-inline-block">
+                type="button"
+                className="btn btn-sm px-3 font-size-16 d-lg-none header-item waves-effect waves-light"
+                data-toggle="collapse"
+                onClick={() => {
+                  tToggle()
+                }}
+                data-target="#topnav-menu-content"
+              >
+                <i className="fa fa-fw fa-bars"></i>
+              </button>
+              {/* <Form className="app-search d-none d-lg-inline-block">
                 <div className="position-relative">
                   <input
                     type="text"
@@ -183,8 +183,8 @@ const Header = (props) => {
                   />
                   <span className="bx bx-search-alt"></span>
                 </div>
-              </Form>{" "}
-              <Dropdown
+              </Form>{" "} */}
+              {/* <Dropdown
                 className="dropdown-mega d-none d-lg-inline-block ms-2"
                 isOpen={megaMenu}
                 toggle={() => {
@@ -269,7 +269,7 @@ const Header = (props) => {
                             </li>
                             <li>
                               <Link to="#">
-                              {props.t("Horizontal layout")}
+                                {props.t("Horizontal layout")}
                               </Link>
                             </li>
                             <li>
@@ -377,7 +377,7 @@ const Header = (props) => {
                     </Col>
                   </Row>
                 </DropdownMenu>
-              </Dropdown>
+              </Dropdown> */}
             </div>
           </Container>
         </div>

@@ -48,10 +48,17 @@ const Cards = (props) => {
               <CardTitle>
                 <div style={{
                   display: 'flex',
-                  justifyContent: 'space-between'
+                  justifyContent: 'space-between',
+                  marginBottom: '10px'
                 }}>
-                  <div style={{ fontSize: '18px' }}>
-                    <i className="bx bx-group" style={{ paddingRight: '8px' }}></i>Cards
+                  <div style={{
+                    fontSize: '16px',
+                    background: '#293e92',
+                    padding: '6px',
+                    color: 'white',
+                    borderRadius: '16px'
+                  }}>
+                    Impersonating Customer
                   </div>
                 </div>
               </CardTitle>
