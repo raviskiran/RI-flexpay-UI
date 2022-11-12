@@ -1,0 +1,10 @@
+.required:after {
+    color: #e32;
+    content: ' *';
+    display: inline;
+}
+
+.requiredError {
+    color: #e32;
+    font-size: 12px;
+}
