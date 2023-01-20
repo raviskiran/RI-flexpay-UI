@@ -5,7 +5,9 @@ import accessToken from "./jwt-token-access/accessToken"
 const token = accessToken
 
 //apply base url for axios
-const API_URL = ""
+const API_URL = "http://102.130.119.106:3333"
+
+// const API_URL = ""
 
 const axiosApi = axios.create({
   baseURL: API_URL,
@@ -18,14 +20,25 @@ axiosApi.interceptors.response.use(
   error => Promise.reject(error)
 )
 
+const headers = () => {
+  return ({
+    Authorization: localStorage.getItem('authUser') && `${localStorage.getItem('authUser')?.type} ${localStorage.getItem('authUser')?.token}`
+  })
+}
+
 export async function get(url, config = {}) {
   return await axiosApi.get(url, { ...config }).then(response => response.data)
 }
 
 export async function post(url, data, config = {}) {
-  return axiosApi
-    .post(url, { ...data }, { ...config })
-    .then(response => response.data)
+  const endpoint = `${API_URL}${url}`
+  // return axiosApi
+  //   .post(url, { ...data }, { ...config })
+  //   .then(response => response.data)
+  return fetch(endpoint, { method: 'post', headers: headers() }).then((res) => {
+    console.log(res, 'res')
+    return res.data
+  })
 }
 
 export async function put(url, data, config = {}) {
