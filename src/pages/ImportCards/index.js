@@ -44,28 +44,12 @@ const UploadCards = () => {
     <React.Fragment>
       <div className="page-content">
 
-        <Breadcrumbs title="Home" breadcrumbItem="Cards Inventory" />
+        <Breadcrumbs title="Home" breadcrumbItem="Cards Inventory" additionalInfo="Impersonating Customer" />
 
         <Row>
           <Col className="col-12">
             <Card>
               <CardBody>
-                <CardTitle className="h4">
-                  <div style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginBottom: '10px'
-                  }}>
-                    <div style={{
-                      fontSize: '16px',
-                      background: '#293e92',
-                      padding: '6px',
-                      color: 'white',
-                      borderRadius: '16px'
-                    }}>
-                      Impersonating Customer
-                    </div></div>
-                </CardTitle>
                 <Form>
                   <Dropzone
                     onDrop={acceptedFiles => {

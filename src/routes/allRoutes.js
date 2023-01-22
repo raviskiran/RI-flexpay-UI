@@ -111,7 +111,7 @@ import UserProfile from "../pages/Authentication/user-profile"
 import CustomerList from "../pages/CustomerList/index"
 import ProfileUsers from "../pages/ProfileUsers/index"
 import ImportCards from "../pages/ImportCards/index"
-import MainForm from '../pages/MainForm/index'
+import CreateCardHolder from '../pages/CreateCardHolder/index'
 import Cards from "../pages/Cards/index"
 import CardHoldersList from "../pages/CardHoldersList/index"
 
@@ -211,7 +211,7 @@ const userRoutes = [
   { path: '/cards', component: Cards },
   { path: '/card-holders-list', component: CardHoldersList },
 
-  { path: '/create-card-holder', component: MainForm },
+  { path: '/create-card-holder', component: CreateCardHolder },
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/customer-list" /> },

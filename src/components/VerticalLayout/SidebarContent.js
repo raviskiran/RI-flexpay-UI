@@ -13,7 +13,7 @@ import { Link } from "react-router-dom"
 import { withTranslation } from "react-i18next"
 
 const sideMenuItems = () => {
-  if (window.location.pathname.includes("card")) {
+  if (window.location.pathname.includes("card")) { // TODO: May be we have to change this logic. For now if the path matches card string, then we show one set of menu
     return [
       {
         label: 'Back to customers',
@@ -119,8 +119,6 @@ const SidebarContent = props => {
       }
     }
   }
-
-
 
   return (
     <React.Fragment>

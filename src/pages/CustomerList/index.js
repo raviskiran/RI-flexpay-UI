@@ -7,6 +7,8 @@ import { Row, Col, Card, CardBody, CardTitle, CardSubtitle, Button } from "react
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 import customerList from '../../mockData/customerList';
 import { fetcher } from '../../fetcher';
+import { get } from '../../helpers/api_helper';
+import { GET_ALL_CUSTOMERS } from '../../helpers/url_helper'
 
 export default (props) => {
   const history = useHistory();
@@ -38,10 +40,11 @@ export default (props) => {
   ]
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
-    fetcher.get(customerList).then(data => {
+    // fetcher.get(customerList) //mock
+    get(GET_ALL_CUSTOMERS).then(data => {
       let userData = [];
       // api call, then map the data
-      data.map((item, index) => {
+      data.data.map((item, index) => {
 
         item.action = (
           <div style={{ display: "flex", justifyContent: "space-between" }}>

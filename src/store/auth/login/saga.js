@@ -22,7 +22,11 @@ function* loginUser({ payload: { user, history } }) {
       email: user.email,
       password: user.password,
     })
-    localStorage.setItem("authUser", JSON.stringify(response))
+    console.log(response, 'login response')
+    localStorage.setItem("authUser", JSON.stringify({
+      ...response, email: user.email,
+      password: user.password
+    }))
     yield put(loginSuccess(response))
 
     history.push("/customer-list")

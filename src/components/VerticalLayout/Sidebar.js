@@ -6,9 +6,6 @@ import { withRouter, Link } from "react-router-dom"
 //i18n
 import { withTranslation } from "react-i18next"
 import SidebarContent from "./SidebarContent"
-import SidebarContentCopy from "./SidebarContentCopy"
-
-import avatar2 from "../../assets/images/users/avatar-2.jpg"
 
 const Sidebar = props => {
   return (

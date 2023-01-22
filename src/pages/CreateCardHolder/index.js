@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   Row,
   Col,
@@ -18,28 +18,20 @@ import { getReferenceData } from '../../referenceData'
 import { mapFieldsKey } from '../../mapper'
 
 import { cardHolderTypeFields } from '../../fieldStructure'
-
+import { post } from '../../helpers/api_helper';
+import { CREATE_CARD_HOLDER } from '../../helpers/url_helper'
 export default () => {
   const { formState, register, reset, ...methods } = useForm()
-  useEffect(() => {
-    fetch("http://demo0237555.mockable.io/test1", {
-      "method": "GET",
-
-    })
-      .then(response => response.json())
-      .then(response => {
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }, [])
 
   const handleSubmit = () => {
     methods.handleSubmit((data) => {
-      // mapFieldsKey(data)
-      console.log(data, mapFieldsKey(data), 'data')
-      // TODO: call an api
+      const mappedData = mapFieldsKey(data)
+      console.log(data, mappedData, 'data')
+      post(CREATE_CARD_HOLDER,
+        { ...mappedData, email: 'admin@softlabs.co.za' } // TODO: do we need an email?
+      ).then((res) => {
+        return res
+      })
     })()
   }
 

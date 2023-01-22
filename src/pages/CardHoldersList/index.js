@@ -8,7 +8,8 @@ import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 import { fetcher } from '../../fetcher';
 import cardHolderList from '../../mockData/cardHolderList';
-
+import { get } from '../../helpers/api_helper';
+import { GET_ALL_CARD_HOLDERS } from '../../helpers/url_helper'
 
 const CardHoldersList = (props) => {
   const columns = [
@@ -40,38 +41,20 @@ const CardHoldersList = (props) => {
 
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
-    fetcher.get(cardHolderList).then(data => {
-      setCardsData(data)
+    //fetcher.get(cardHolderList) //mock
+    get(GET_ALL_CARD_HOLDERS).then(data => {
+      setCardsData(data.data)
     })
   }, []);
 
   return <React.Fragment>
     <div className="page-content">
-      <Breadcrumbs title="Home" breadcrumbItem="Cards List" />
+      <Breadcrumbs title="Home" breadcrumbItem="Cards List" additionalInfo="Impersonating Customer" />
 
       <Row>
         <Col className="col-12">
           <Card>
             <CardBody>
-              <CardTitle>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  marginBottom: '10px'
-                }}>
-                  <div style={{
-                    fontSize: '16px',
-                    background: '#293e92',
-                    padding: '6px',
-                    color: 'white',
-                    borderRadius: '16px'
-                  }}>
-                    Impersonating Customer
-                  </div>
-                </div>
-              </CardTitle>
-
-
               <MDBDataTable responsive bordered data={{ columns, rows: cardsData }} />
             </CardBody>
           </Card>
@@ -79,7 +62,7 @@ const CardHoldersList = (props) => {
       </Row>
     </div>
 
-  </React.Fragment>
+  </React.Fragment >
 }
 
 export default CardHoldersList
