@@ -19,11 +19,15 @@ let users = [
   },
 ]
 
+const loginRes = {
+  "type": "bearer",
+  "token": "OA.0as8SwwZpC_yyHMPQAoUIw4F5ScyGM_yx_YrxXn_BVxuU1pd1KTQrSp_d-1X"
+}
 const fakeBackend = () => {
   // This sets the mock adapter on the default instance
   const mock = new MockAdapter(axios)
 
-mock.onPost(url.POST_FAKE_REGISTER).reply(config => {
+  mock.onPost(url.POST_FAKE_REGISTER).reply(config => {
     const user = JSON.parse(config["data"])
     users.push(user)
     return new Promise((resolve, reject) => {
@@ -38,17 +42,11 @@ mock.onPost(url.POST_FAKE_REGISTER).reply(config => {
     const validUser = users.filter(
       usr => usr.email === user.email && usr.password === user.password
     )
-    
+
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (validUser["length"] === 1) {
-          resolve([200, validUser[0]])
-        } else {
-          reject([
-            400,
-            "Username and password are invalid. Please enter correct username and password",
-          ])
-        }
+        resolve([200, loginRes])
+
       })
     })
   })
@@ -155,7 +153,7 @@ mock.onPost(url.POST_FAKE_REGISTER).reply(config => {
           const tokenObj = { accessToken: token } // Token Obj
           const validUserObj = { ...validUser[0], ...tokenObj } // validUser Obj
 
-          resolve([200, validUserObj])
+          resolve([200, loginRes])
         } else {
           reject([
             400,

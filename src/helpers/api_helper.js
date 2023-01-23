@@ -5,9 +5,9 @@ import accessToken from "./jwt-token-access/accessToken"
 const token = accessToken
 
 //apply base url for axios
-const API_URL = "http://102.130.119.106:3333"
+// const API_URL = "https://demo0237555.mockable.io"
 
-// const API_URL = ""
+const API_URL = ""
 
 const axiosApi = axios.create({
   baseURL: API_URL,
@@ -32,9 +32,9 @@ export async function get(url, config = {}) {
 
 export async function post(url, data, config = {}) {
   const endpoint = `${API_URL}${url}`
-  // return axiosApi
-  //   .post(url, { ...data }, { ...config })
-  //   .then(response => response.data)
+  return axiosApi
+    .post(url, { ...data }, { ...config })
+    .then(response => response.data)
   return fetch(endpoint, { method: 'post', headers: headers() }).then((res) => {
     console.log(res, 'res')
     return res.data
