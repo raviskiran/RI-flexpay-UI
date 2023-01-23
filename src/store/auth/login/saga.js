@@ -18,7 +18,7 @@ import {
 function* loginUser({ payload: { user, history } }) {
 
   try {
-    const response = yield call(postAuthLogin, {
+    const response = yield call(postJwtLogin, {
       email: user.email,
       password: user.password,
     })

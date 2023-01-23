@@ -63,7 +63,7 @@ const ProfileMenu = props => {
             <i className="bx bx-user font-size-16 align-middle me-1"></i>{" "}
             {props.t("View Profile")}{" "}
           </DropdownItem>
-          <DropdownItem tag="a" href="/#">
+          {/* <DropdownItem tag="a" href="/#">
             <i className="bx bx-wallet font-size-16 align-middle me-1"></i>{" "}
             {props.t("My Wallet")}
           </DropdownItem>
@@ -75,7 +75,7 @@ const ProfileMenu = props => {
           <DropdownItem tag="a" href="auth-lock-screen">
             <i className="bx bx-lock-open font-size-16 align-middle me-1"></i>{" "}
             {props.t("Lock screen")}
-          </DropdownItem>
+          </DropdownItem> */}
           <div className="dropdown-divider" />
           <Link to="/logout" className="dropdown-item text-danger">
             <i className="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>{" "}

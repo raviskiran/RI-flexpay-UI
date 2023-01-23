@@ -12,11 +12,10 @@ const Sidebar = props => {
     <React.Fragment>
       <div className="vertical-menu">
         <div className="h-100">
-          <div className="user-wid text-center py-4">
-            <div className="user-img">
+          <div className="user-wid text-center py-2">
+            {/* <div className="user-img">
               RETAIL INSIGHT IMAGE
-            </div>
-
+            </div> */}
             {/* <div className="mt-3">
               <Link to="#" className="text-dark fw-medium font-size-16">Patrick Becker</Link>
               <p className="text-body mt-1 mb-0 font-size-13">UI/UX Designer</p>

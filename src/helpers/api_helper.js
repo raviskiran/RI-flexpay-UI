@@ -32,13 +32,13 @@ export async function get(url, config = {}) {
 
 export async function post(url, data, config = {}) {
   const endpoint = `${API_URL}${url}`
-  return axiosApi
+  return axios
     .post(url, { ...data }, { ...config })
     .then(response => response.data)
-  return fetch(endpoint, { method: 'post', headers: headers() }).then((res) => {
-    console.log(res, 'res')
-    return res.data
-  })
+  // return fetch(endpoint, { method: 'post', headers: headers() }).then((res) => {
+  //   console.log(res, 'res')
+  //   return res.data
+  // })
 }
 
 export async function put(url, data, config = {}) {
