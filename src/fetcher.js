@@ -1,6 +1,5 @@
 const mockFetcher = (data) => {
-    console.log(data, 'data')
-    return new Promise((resolve) => setTimeout(resolve, 2000, data))
+    return new Promise((resolve) => setTimeout(resolve, 500, data))
 }
 
 export const fetcher = {

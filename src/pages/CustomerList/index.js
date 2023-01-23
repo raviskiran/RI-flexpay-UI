@@ -40,8 +40,7 @@ export default (props) => {
   ]
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
-    // fetcher.get(customerList) //mock
-    get(GET_ALL_CUSTOMERS).then(data => {
+    fetcher.get(customerList).then(data => {
       let userData = [];
       // api call, then map the data
       data.data.map((item, index) => {
@@ -61,7 +60,28 @@ export default (props) => {
         userData.push({ ...item, ...item.client });
       });
       setCardsData(userData);
-    })
+    }) //mock
+    // get(GET_ALL_CUSTOMERS).then(data => {
+    //   let userData = [];
+    //   // api call, then map the data
+    //   data.data.map((item, index) => {
+
+    //     item.action = (
+    //       <div style={{ display: "flex", justifyContent: "space-between" }}>
+    //         <Button
+    //           color="secondary"
+    //           className="btn btn-secondary waves-effect"
+    //           onClick={() => history.push('/create-card-holder')}
+    //         >
+    //           <i className="bx bx-link-external"></i>{" "}
+    //           Pay Card
+    //         </Button>
+    //       </div>
+    //     );
+    //     userData.push({ ...item, ...item.client });
+    //   });
+    //   setCardsData(userData);
+    // })
   }, []);
 
 

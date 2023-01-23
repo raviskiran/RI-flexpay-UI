@@ -41,10 +41,12 @@ const CardHoldersList = (props) => {
 
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
-    //fetcher.get(cardHolderList) //mock
-    get(GET_ALL_CARD_HOLDERS).then(data => {
+    fetcher.get(cardHolderList).then(data => {
       setCardsData(data.data)
-    })
+    }) //mock
+    // get(GET_ALL_CARD_HOLDERS).then(data => {
+    //   setCardsData(data.data)
+    // })
   }, []);
 
   return <React.Fragment>
