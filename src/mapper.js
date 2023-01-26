@@ -1,6 +1,8 @@
 import { assocPath } from 'ramda'
 
 const fieldsKeyMapper = {
+  email: ['email'],
+  cardId: ['cardId'],
   initials: ['cardholder', 'initials'],
   firstName: ['cardholder', 'firstName'],
   surname: ['cardholder', 'surname'],

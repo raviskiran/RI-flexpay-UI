@@ -25,13 +25,16 @@ export default () => {
 
   const handleSubmit = () => {
     methods.handleSubmit((data) => {
-      const mappedData = mapFieldsKey(data)
-      console.log(data, mappedData, 'data')
-      post(CREATE_CARD_HOLDER,
-        { ...mappedData, email: 'admin@softlabs.co.za' } // TODO: do we need an email?
-      ).then((res) => {
-        return res
-      })
+      const documents = [{ document: { documentType: data?.documentType1?.value, fileType: 'PDF', base64EncodedFile: data?.base64EncodedFile1 } },
+      { document: { documentType: data?.documentType2?.value, fileType: 'PDF', base64EncodedFile: data?.base64EncodedFile2 } }
+      ]
+      const mappedData = { ...mapFieldsKey(data), cardholder: { ...mapFieldsKey(data).cardholder, documents }, email: 'admin@softlabs.co.za', }
+      console.log(mappedData)
+      fetch(`http://102.130.119.106:3333${CREATE_CARD_HOLDER}`, { method: 'post', data: mappedData }).then((res) => {
+        console.log(res, 'res')
+        return res.data
+      }).catch((error) => console.log(error))
+
     })()
   }
 
@@ -48,9 +51,6 @@ export default () => {
           <FormProvider {...methods}>
             <form onSubmit={handleSubmit}>
               <section style={{ paddingBottom: '10px' }}>
-                <CardTitle>
-                  <div style={{ fontSize: '18px' }}>Cardholder Type</div>
-                </CardTitle>
                 <div className='row'>
                   {cardHolderTypeFields.map(({ required, ...field }) => {
                     if (field.type === 'label') {

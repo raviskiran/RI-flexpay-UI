@@ -151,6 +151,7 @@ const employmentDetailsFields = [
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
+    refDataKey: 'foreignCountryMandatory'
   },
   {
     name: 'expectedForeignCountry',
@@ -165,26 +166,55 @@ const employmentDetailsFields = [
 
 const documentFields = [
   {
-    name: 'documentType',
+    name: 'documentType1',
     label: 'Document Type',
     type: 'select',
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
+    refDataKey: 'saiRefData'
   },
+  // {
+  //   name: 'fileType1',
+  //   label: 'File Type',
+  //   type: 'select',
+  //   required: () => true,
+  //   className: 'col-md-6',
+  //   renderIf: () => true,
+  //   disabled: () => false,
+  // },
   {
-    name: 'fileType',
-    label: 'File Type',
-    type: 'select',
+    name: 'base64EncodedFile1',
+    label: 'Upload Document',
+    type: 'file',
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
   },
   {
-    name: 'document',
+    name: 'documentType2',
     label: 'Document Type',
+    type: 'select',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false,
+    refDataKey: 'proofOfAddressRefData'
+  },
+  // {
+  //   name: 'fileType2',
+  //   label: 'File Type',
+  //   type: 'select',
+  //   required: () => true,
+  //   className: 'col-md-6',
+  //   renderIf: () => true,
+  //   disabled: () => false,
+  // },
+  {
+    name: 'base64EncodedFile2',
+    label: 'Upload Document',
     type: 'file',
     required: () => true,
     className: 'col-md-6',
@@ -591,6 +621,34 @@ const secondaryIdentityFields = [
 
 export const cardHolderTypeFields = [
   {
+    name: 'cardId',
+    label: 'Card Id',
+    type: 'text',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false,
+    maxLength: 25
+  },
+  {
+    name: 'email',
+    label: 'Email',
+    type: 'text',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false,
+    maxLength: 100
+  },
+  {
+    label: 'Cardholder Type',
+    type: 'label',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false
+  },
+  {
     name: 'initials',
     label: 'Initials',
     type: 'text',
@@ -654,7 +712,8 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false
+    disabled: () => false,
+    refDataKey: 'country'
   },
   {
     name: 'primaryIdentity',
@@ -700,7 +759,7 @@ export const cardHolderTypeFields = [
     maxLength: 255
   },
   {
-    name: 'Udf2',
+    name: 'udf2',
     label: 'Udf2',
     type: 'text',
     required: () => false,
@@ -710,7 +769,7 @@ export const cardHolderTypeFields = [
     maxLength: 255
   },
   {
-    name: 'Udf3',
+    name: 'udf3',
     label: 'Udf3',
     type: 'text',
     required: () => false,
