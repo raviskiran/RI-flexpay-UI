@@ -29,7 +29,7 @@ function* loginUser({ payload: { user, history } }) {
     }))
     yield put(loginSuccess(response))
 
-    history.push("/customer-list")
+    history.push("/users-list")
   } catch (error) {
     yield put(apiError(error))
   }
@@ -60,7 +60,7 @@ function* socialLogin({ payload: { data, history, type } }) {
       localStorage.setItem("authUser", JSON.stringify(response))
       yield put(loginSuccess(response))
     }
-    history.push("/customer-list")
+    history.push("/users-list")
   } catch (error) {
     yield put(apiError(error))
   }

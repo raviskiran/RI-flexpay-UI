@@ -13,13 +13,9 @@ import { Link } from "react-router-dom"
 import { withTranslation } from "react-i18next"
 
 const sideMenuItems = () => {
-  if (window.location.pathname.includes("card")) { // TODO: May be we have to change this logic. For now if the path matches card string, then we show one set of menu
+  if (true) { // TODO: May be we have to change this logic. For now if the path matches card string, then we show one set of menu
     return [
-      {
-        label: 'Back to customers',
-        path: '/customer-list',
-        icon: 'bx bxs-receipt'
-      },
+
       {
         label: 'Import cards',
         path: '/import-cards',
@@ -40,6 +36,11 @@ const sideMenuItems = () => {
         label: 'Card Holders List',
         path: '/card-holders-list',
         icon: 'bx bx-credit-card'
+      },
+      {
+        label: 'Users',
+        path: '/users-list',
+        icon: 'bx bxs-receipt'
       }
     ]
   } else {

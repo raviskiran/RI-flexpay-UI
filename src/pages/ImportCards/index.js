@@ -44,7 +44,7 @@ const UploadCards = () => {
     <React.Fragment>
       <div className="page-content">
 
-        <Breadcrumbs title="Home" breadcrumbItem="Cards Inventory" additionalInfo="Impersonating Customer" />
+        <Breadcrumbs title="Home" breadcrumbItem="Cards Inventory"  />
 
         <Row>
           <Col className="col-12">

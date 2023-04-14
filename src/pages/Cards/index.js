@@ -39,7 +39,7 @@ const Cards = (props) => {
 
   return <React.Fragment>
     <div className="page-content">
-      <Breadcrumbs title="Home" breadcrumbItem="Cards List" additionalInfo="Impersonating Customer" />
+      <Breadcrumbs title="Home" breadcrumbItem="Cards List"  />
 
       <Row>
         <Col className="col-12">
