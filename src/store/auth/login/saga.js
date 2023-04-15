@@ -19,13 +19,14 @@ function* loginUser({ payload: { user, history } }) {
 
   try {
     const response = yield call(postAuthLogin, {
-      email: user.email,
+      //email: user.email,
+      username: user.username,
       password: user.password,
+      remember: user.remember? true : false
     })
     console.log(response, 'login response')
     localStorage.setItem("authUser", JSON.stringify({
-      ...response, email: user.email,
-      password: user.password
+      ...response, username:  user.username
     }))
     yield put(loginSuccess(response))
 

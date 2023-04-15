@@ -113,7 +113,8 @@ import ImportCards from "../pages/ImportCards/index"
 import CreateCardHolder from '../pages/CreateCardHolder/index'
 import Cards from "../pages/Cards/index"
 import CardHoldersList from "../pages/CardHoldersList/index"
-import UsersList from "../pages/UsersList"
+import UsersList from "../pages/UsersList/index"
+import CreateUser from "../pages/CreateUser/index"
 
 const userRoutes = [
   { path: "/calendar", component: Calendar },
@@ -211,6 +212,9 @@ const userRoutes = [
   { path: '/card-holders-list', component: CardHoldersList },
 
   { path: '/create-card-holder', component: CreateCardHolder },
+  { path: '/create-user', component: CreateUser },
+
+  
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/users-list" /> },

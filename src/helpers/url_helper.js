@@ -8,7 +8,7 @@ export const POST_FAKE_PASSWORD_FORGET = "/fake-forget-pwd"
 export const POST_FAKE_JWT_PASSWORD_FORGET = "/jwt-forget-pwd"
 export const SOCIAL_LOGIN = "/social-login"
 
-export const POST_LOGIN = "/login"
+export const POST_LOGIN = "/auth/login"
 
 
 //PROFILE

@@ -67,7 +67,7 @@ export default (props) => {
 
   return <React.Fragment>
     <div className="page-content">
-      <Breadcrumbs title="Home" breadcrumbItem="Customer List" />
+      <Breadcrumbs title="Home" breadcrumbItem="Users List" />
 
       <Row>
         <Col className="col-12">
@@ -84,6 +84,7 @@ export default (props) => {
                   <Button
                     color="secondary"
                     className="btn btn-secondary waves-effect"
+                    onClick={() => history.push('/create-user')}
                   >
                     <i className="bx bx-plus"></i>{" "}
                     Create User

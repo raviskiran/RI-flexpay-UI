@@ -32,9 +32,9 @@ export async function get(url, config = {}) {
 
 export async function post(url, data, config = {}) {
   const endpoint = `${API_URL}${url}`
-  // return axiosApi
-  //   .post(url, { ...data }, { ...config })
-  //   .then(response => response.data)
+  return axiosApi
+    .post(endpoint, { ...data }, { ...config })
+    .then(response => response.data)
   return fetch(endpoint, { method: 'post', headers: headers() }).then((res) => {
     console.log(res, 'res')
     return res.data
@@ -52,3 +52,22 @@ export async function del(url, config = {}) {
     .delete(url, { ...config })
     .then(response => response.data)
 }
+
+export async function upload(url, file) {
+
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    const response = await axiosApi.post(url, formData, {
+      headers: {
+        ...headers(),
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+
+    console.log('File upload response:', response.data);
+  } catch (error) {
+    console.error('File upload failed:', error);
+  }
+};

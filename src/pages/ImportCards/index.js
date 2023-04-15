@@ -8,14 +8,28 @@ import {
   CardTitle
 } from "reactstrap"
 import Dropzone from "react-dropzone"
+import axios from 'axios';
 
 // Breadcrumb
 import Breadcrumbs from "../../components/Common/Breadcrumb"
 
 import { Link } from "react-router-dom"
+ import { upload } from "../../helpers/api_helper";
+
+
+
+
 
 const UploadCards = () => {
   const [selectedFiles, setselectedFiles] = useState([])
+
+  const uploadFile = async () => {
+    console.log(selectedFiles);
+    if(selectedFiles.length === 0) return;
+    upload('card/upload',selectedFiles[0])
+  };
+
+  
 
   function handleAcceptedFiles(files) {
     files.map(file =>
@@ -52,6 +66,8 @@ const UploadCards = () => {
               <CardBody>
                 <Form>
                   <Dropzone
+                    maxFiles={1}
+                    accept={'text/csv'}
                     onDrop={acceptedFiles => {
                       handleAcceptedFiles(acceptedFiles)
                     }}
@@ -112,6 +128,7 @@ const UploadCards = () => {
                   <button
                     type="button"
                     className="btn btn-primary waves-effect waves-light"
+                    onClick={uploadFile}
                   >
                     Send Files
                   </button>

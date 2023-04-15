@@ -8,7 +8,7 @@ import { connect } from "react-redux"
 import { withRouter, Link } from "react-router-dom"
 
 // availity-reactstrap-validation
-import { AvForm, AvField } from "availity-reactstrap-validation"
+import { AvForm, AvField, AvCheckboxGroup, AvCheckbox } from "availity-reactstrap-validation"
 
 // actions
 import { loginUser, apiError, socialLogin } from "../../store/actions"
@@ -46,7 +46,7 @@ const Login = (props) => {
                   <div className="bg-login-overlay"></div>
                   <div className="position-relative">
                     <h5 className="text-white font-size-20">Welcome Back !</h5>
-                    <p className="text-white-50 mb-0">Sign in to continue to Qovex.</p>
+                    <p className="text-white-50 mb-0">Sign in to continue to Retail Insight.</p>
                     <Link to="/" className="logo logo-admin mt-4">
                       <img src={logo} alt="" height="30" />
                     </Link>
@@ -66,9 +66,9 @@ const Login = (props) => {
 
                       <div className="mb-3">
                         <AvField
-                          name="email"
+                          name="username"
                           label="Email"
-                          value="admin@themesbrand.com"
+                          value="admin@truthy.com"
                           className="form-control"
                           placeholder="Enter email"
                           type="email"
@@ -80,7 +80,7 @@ const Login = (props) => {
                         <AvField
                           name="password"
                           label="Password"
-                          value="123456"
+                          value="Truthy@123"
                           type="password"
                           required
                           placeholder="Enter Password"
@@ -88,17 +88,24 @@ const Login = (props) => {
                       </div>
 
                       <div className="form-check">
-                        <input
+
+                      <AvCheckboxGroup name="remember" >
+                       <AvCheckbox label="Remember me" value="true" />
+                     </AvCheckboxGroup>
+
+
+                        {/* <input
                           type="checkbox"
                           className="form-check-input"
                           id="customControlInline"
+                          name='remember'
                         />
                         <label
                           className="form-check-label"
                           htmlFor="customControlInline"
                         >
                           Remember me
-                        </label>
+                        </label> */}
                       </div>
 
                       <div className="mt-3">
@@ -122,8 +129,8 @@ const Login = (props) => {
               <div className="mt-5 text-center">
                 <p>Don't have an account ? <Link to="/register"
                   className="fw-medium text-primary"> Signup now </Link> </p>
-                <p>© {new Date().getFullYear()} Qovex. Crafted with <i
-                  className="mdi mdi-heart text-danger"></i> by Themesbrand
+                <p>© {new Date().getFullYear()} Retail Insight. Crafted with <i
+                  className="mdi mdi-heart text-danger"></i> by Softlabs
                         </p>
               </div>
             </Col>
