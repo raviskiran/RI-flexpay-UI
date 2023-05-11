@@ -58,7 +58,7 @@ const bankAccountFields = [
     renderIf: () => true,
     disabled: () => false,
     maxLength: 20
-  },
+  }
 ]
 
 const employmentDetailsFields = [
@@ -69,7 +69,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'industryId',
@@ -78,7 +78,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'industryHighLevel',
@@ -87,7 +87,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'employmentStatus',
@@ -96,7 +96,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'monthlyTurnover',
@@ -105,7 +105,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'sourceOfFunds',
@@ -114,7 +114,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'cashTransactValue',
@@ -123,7 +123,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'expectedUseOfChannel',
@@ -132,7 +132,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'expectedForeignTransactions',
@@ -141,7 +141,7 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'foreignCountryMandatory',
@@ -151,6 +151,7 @@ const employmentDetailsFields = [
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
+    refDataKey: 'foreignCountryMandatory'
   },
   {
     name: 'expectedForeignCountry',
@@ -159,38 +160,67 @@ const employmentDetailsFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
-  },
+    disabled: () => false
+  }
 ]
 
 const documentFields = [
   {
-    name: 'documentType',
+    name: 'documentType1',
     label: 'Document Type',
     type: 'select',
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
+    refDataKey: 'saiRefData'
   },
+  // {
+  //   name: 'fileType1',
+  //   label: 'File Type',
+  //   type: 'select',
+  //   required: () => true,
+  //   className: 'col-md-6',
+  //   renderIf: () => true,
+  //   disabled: () => false,
+  // },
   {
-    name: 'fileType',
-    label: 'File Type',
-    type: 'select',
-    required: () => true,
-    className: 'col-md-6',
-    renderIf: () => true,
-    disabled: () => false,
-  },
-  {
-    name: 'document',
-    label: 'Document Type',
+    name: 'base64EncodedFile1',
+    label: 'Upload Document',
     type: 'file',
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
+  {
+    name: 'documentType2',
+    label: 'Document Type',
+    type: 'select',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false,
+    refDataKey: 'proofOfAddressRefData'
+  },
+  // {
+  //   name: 'fileType2',
+  //   label: 'File Type',
+  //   type: 'select',
+  //   required: () => true,
+  //   className: 'col-md-6',
+  //   renderIf: () => true,
+  //   disabled: () => false,
+  // },
+  {
+    name: 'base64EncodedFile2',
+    label: 'Upload Document',
+    type: 'file',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false
+  }
 ]
 
 const cardPlasticDetailsFields = [
@@ -233,7 +263,7 @@ const cardPlasticDetailsFields = [
     renderIf: () => true,
     disabled: () => false,
     maxLength: 40
-  },
+  }
 ]
 
 const postalAddressFields = [
@@ -251,7 +281,8 @@ const postalAddressFields = [
     name: 'postalAddressLine1',
     label: 'Line 1',
     type: 'text',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator && postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) =>
+      postalAddressIndicator && postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
@@ -261,7 +292,7 @@ const postalAddressFields = [
     name: 'postalAddressLine2',
     label: 'Line 2',
     type: 'text',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
@@ -271,7 +302,7 @@ const postalAddressFields = [
     name: 'postalAddressSuburb',
     label: 'Suburb',
     type: 'text',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
@@ -281,7 +312,7 @@ const postalAddressFields = [
     name: 'postalAddressCity',
     label: 'City',
     type: 'text',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
@@ -291,34 +322,32 @@ const postalAddressFields = [
     name: 'postalAddressCountry',
     label: 'Country',
     type: 'select',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'country'
-
   },
   {
     name: 'postalAddressProvince',
     label: 'Province',
     type: 'select',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'province'
-
   },
   {
     name: 'postalAddressPostalCode',
     label: 'Postal Code',
     type: 'text',
-    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === "DIFF_FROM_RESIDENT",
+    required: ({ postalAddressIndicator }) => postalAddressIndicator.value === 'DIFF_FROM_RESIDENT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
     maxLength: 150
-  },
+  }
 ]
 const residentialAddressFields = [
   {
@@ -380,7 +409,6 @@ const residentialAddressFields = [
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'country'
-
   },
   {
     name: 'residentialAddressProvince',
@@ -391,7 +419,6 @@ const residentialAddressFields = [
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'province'
-
   },
   {
     name: 'residentialAddressPostalCode',
@@ -402,7 +429,7 @@ const residentialAddressFields = [
     renderIf: () => true,
     disabled: () => false,
     maxLength: 150
-  },
+  }
 ]
 const deliveryAddressFields = [
   {
@@ -474,7 +501,6 @@ const deliveryAddressFields = [
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'province'
-
   },
   {
     name: 'deliveryAddressPostalCode',
@@ -485,7 +511,7 @@ const deliveryAddressFields = [
     renderIf: () => true,
     disabled: () => false,
     maxLength: 150
-  },
+  }
 ]
 const primaryIdentityFields = [
   {
@@ -515,7 +541,7 @@ const primaryIdentityFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'primaryIdentityExpiryDate',
@@ -524,7 +550,7 @@ const primaryIdentityFields = [
     required: ({ primaryIdentityType }) => primaryIdentityType.value !== 'SAI',
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'primaryIdentityIssueCountry',
@@ -535,14 +561,15 @@ const primaryIdentityFields = [
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'country'
-  },
+  }
 ]
 const secondaryIdentityFields = [
   {
     name: 'secondaryIdentityType',
     label: 'Identity Type',
     type: 'select',
-    required: ({ secondaryIdentityType, ficaIndicator }) => secondaryIdentityType.value === 'PASS' && ficaIndicator.value === "FICA_LIGHT",
+    required: ({ secondaryIdentityType, ficaIndicator }) =>
+      secondaryIdentityType.value === 'PASS' && ficaIndicator.value === 'FICA_LIGHT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
@@ -552,7 +579,8 @@ const secondaryIdentityFields = [
     name: 'secondaryIdentityNumber',
     label: 'Number',
     type: 'number',
-    required: ({ secondaryIdentityType, ficaIndicator }) => secondaryIdentityType.value === 'PASS' && ficaIndicator.value === "FICA_LIGHT",
+    required: ({ secondaryIdentityType, ficaIndicator }) =>
+      secondaryIdentityType.value === 'PASS' && ficaIndicator.value === 'FICA_LIGHT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
@@ -562,11 +590,12 @@ const secondaryIdentityFields = [
     name: 'secondaryIdentityIssueDate',
     label: 'Issue Date',
     type: 'date',
-    required: ({ secondaryIdentityType, ficaIndicator }) => secondaryIdentityType.value === 'PASS' && ficaIndicator.value === "FICA_LIGHT",
+    required: ({ secondaryIdentityType, ficaIndicator }) =>
+      secondaryIdentityType.value === 'PASS' && ficaIndicator.value === 'FICA_LIGHT',
 
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'secondaryIdentityExpiryDate',
@@ -575,21 +604,50 @@ const secondaryIdentityFields = [
     required: (type) => type !== 'SAI',
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'secondaryIdentityIssueCountry',
     label: 'Issue Country',
     type: 'select',
-    required: ({ secondaryIdentityType, ficaIndicator }) => secondaryIdentityType.value === 'PASS' && ficaIndicator.value === "FICA_LIGHT",
+    required: ({ secondaryIdentityType, ficaIndicator }) =>
+      secondaryIdentityType.value === 'PASS' && ficaIndicator.value === 'FICA_LIGHT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false,
     refDataKey: 'country'
-  },
+  }
 ]
 
 export const cardHolderTypeFields = [
+  {
+    name: 'cardId',
+    label: 'Card Id',
+    type: 'text',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false,
+    maxLength: 25
+  },
+  {
+    name: 'email',
+    label: 'Email',
+    type: 'text',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false,
+    maxLength: 100
+  },
+  {
+    label: 'Cardholder Type',
+    type: 'label',
+    required: () => true,
+    className: 'col-md-6',
+    renderIf: () => true,
+    disabled: () => false
+  },
   {
     name: 'initials',
     label: 'Initials',
@@ -654,7 +712,8 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false
+    disabled: () => false,
+    refDataKey: 'country'
   },
   {
     name: 'primaryIdentity',
@@ -670,7 +729,8 @@ export const cardHolderTypeFields = [
     name: 'secondaryIdentity',
     label: 'Secondary Identity',
     type: 'label',
-    required: ({ secondaryIdentityType, ficaIndicator }) => secondaryIdentityType.value === 'PASS' && ficaIndicator.value === "FICA_LIGHT",
+    required: ({ secondaryIdentityType, ficaIndicator }) =>
+      secondaryIdentityType.value === 'PASS' && ficaIndicator.value === 'FICA_LIGHT',
     className: 'col-md-6',
     renderIf: () => true,
     disabled: () => false
@@ -687,7 +747,7 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'udf1',
@@ -700,7 +760,7 @@ export const cardHolderTypeFields = [
     maxLength: 255
   },
   {
-    name: 'Udf2',
+    name: 'udf2',
     label: 'Udf2',
     type: 'text',
     required: () => false,
@@ -710,7 +770,7 @@ export const cardHolderTypeFields = [
     maxLength: 255
   },
   {
-    name: 'Udf3',
+    name: 'udf3',
     label: 'Udf3',
     type: 'text',
     required: () => false,
@@ -756,7 +816,7 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'emailAddress',
@@ -795,7 +855,7 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'residentialStatusCode',
@@ -804,13 +864,13 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'residentialAddress',
     label: 'Residential Address',
     type: 'label',
-    required: () => true,
+    required: () => true
   },
   ...residentialAddressFields,
   {
@@ -820,12 +880,12 @@ export const cardHolderTypeFields = [
     required: () => true,
     className: 'col-md-6',
     renderIf: () => true,
-    disabled: () => false,
+    disabled: () => false
   },
   {
     name: 'postalAddress',
     label: 'Postal Address',
-    type: 'label',
+    type: 'label'
   },
   ...postalAddressFields,
   {
@@ -844,23 +904,23 @@ export const cardHolderTypeFields = [
     disabled: () => false,
     maxLength: 100
   },
-  {
-    name: 'otherBankAccount',
-    label: 'Other Bank Account',
-    type: 'label',
-    required: () => false,
-    className: 'col-md-6',
-    renderIf: () => true,
-    disabled: () => false,
-    maxLength: 100
-  },
-  ...bankAccountFields,
-  {
-    name: 'employmentDetails',
-    label: 'Employment Details',
-    type: 'label'
-  },
-  ...employmentDetailsFields,
+  // {
+  //   name: 'otherBankAccount',
+  //   label: 'Other Bank Account',
+  //   type: 'label',
+  //   required: () => false,
+  //   className: 'col-md-6',
+  //   renderIf: () => true,
+  //   disabled: () => false,
+  //   maxLength: 100
+  // },
+  // ...bankAccountFields,
+  // {
+  //   name: 'employmentDetails',
+  //   label: 'Employment Details',
+  //   type: 'label'
+  // },
+  // ...employmentDetailsFields,
   {
     name: 'documents',
     label: 'Documents',

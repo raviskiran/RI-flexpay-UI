@@ -1,6 +1,8 @@
 import { assocPath } from 'ramda'
 
 const fieldsKeyMapper = {
+  email: ['email'],
+  cardId: ['cardId'],
   initials: ['cardholder', 'initials'],
   firstName: ['cardholder', 'firstName'],
   surname: ['cardholder', 'surname'],
@@ -80,15 +82,15 @@ const fieldsKeyMapper = {
   expectedUseOfChannel: ['cardholder', 'employmentDetails', 'expectedUseOfChannel'],
   expectedForeignTransactions: ['cardholder', 'employmentDetails', 'expectedForeignTransactions'],
   foreignCountryMandatory: ['cardholder', 'employmentDetails', 'foreignCountryMandatory'],
-  expectedForeignCountry: ['cardholder', 'employmentDetails', 'expectedForeignCountry'],
+  expectedForeignCountry: ['cardholder', 'employmentDetails', 'expectedForeignCountry']
 
   // document
-
 }
 
 export const mapFieldsKey = (data) => {
   return Object.entries(fieldsKeyMapper).reduce((acc, [key, path]) => {
-    if (data[key] && data[key].value && data[key].label) { // TODO: may be we should change it
+    if (data[key] && data[key].value && data[key].label) {
+      // TODO: may be we should change it
       return assocPath(path, data[key].value, acc)
     }
     return assocPath(path, data[key], acc)
