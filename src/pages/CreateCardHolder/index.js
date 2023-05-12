@@ -20,28 +20,94 @@ import { mapFieldsKey } from '../../mapper'
 import { cardHolderTypeFields } from '../../fieldStructure'
 import { CREATE_CARD_HOLDER } from '../../helpers/url_helper'
 import { get, post } from '../../helpers/api_helper'
+import { useLocation } from 'react-router-dom'
+
+const additionalData = {
+  cardId: '3525231',
+  skipSoap: true,
+  cardholder: {
+    dob: '1982-05-31',
+    title: 'MR',
+    gender: 'MALE',
+    mobile: '0658691044',
+    surname: 'Hleza',
+    keyField: 'TEST12345',
+    documents: [
+      {
+        document: {
+          fileType: 'PDF'
+        }
+      },
+      {
+        document: {
+          fileType: 'PDF'
+        }
+      }
+    ],
+    firstName: 'Mbuso',
+    nationality: 'SOUTH_AFRICA',
+    ficaIndicator: 'FICA_LIGHT',
+    postalAddress: {},
+    deliveryAddress: {
+      city: 'Joihannesburg',
+      line1: '74',
+      line2: 'Glover road',
+      suburb: 'Rockville',
+      country: 'SOUTH_AFRICA',
+      province: 'GAUTENG',
+      postalCode: '1818'
+    },
+    primaryIdentity: {
+      type: 'SAI',
+      number: '8205315412085',
+      issueDate: '1998-06-10',
+      issueCountry: 'SOUTH_AFRICA'
+    },
+    otherBankAccount: {},
+    employmentDetails: {},
+    languageIndicator: 'EN',
+    secondaryIdentity: {
+      type: 'SAI',
+      number: '8205315412087',
+      issueDate: '1998-06-20',
+      expiryDate: '2030-06-20',
+      issueCountry: 'SOUTH_AFRICA'
+    },
+    residenceIndicator: 'RESIDENT',
+    residentialAddress: {
+      city: 'Johannesburg',
+      line1: '74',
+      line2: 'Glover road',
+      suburb: 'Rockville',
+      country: 'SOUTH_AFRICA',
+      province: 'GAUTENG',
+      postalCode: '1818'
+    },
+    residentialStatusCode: 'TENANT',
+    postalAddressIndicator: 'SAME_AS_RESIDENT'
+  }
+}
 
 export default () => {
+  const location = useLocation()
   const { formState, register, reset, ...methods } = useForm()
 
   const handleSubmit = () => {
     methods.handleSubmit((data) => {
-      const documents = [
-        {
-          document: {
+      const documents = {
+        document: [
+          {
             documentType: data?.documentType1?.value,
             fileType: 'PDF',
             base64EncodedFile: data?.base64EncodedFile1
-          }
-        },
-        {
-          document: {
+          },
+          {
             documentType: data?.documentType2?.value,
             fileType: 'PDF',
             base64EncodedFile: data?.base64EncodedFile2
           }
-        }
-      ]
+        ]
+      }
       const mappedData = {
         ...mapFieldsKey(data),
         cardholder: { ...mapFieldsKey(data).cardholder, documents },
@@ -91,6 +157,7 @@ export default () => {
                             secondaryIdentityType
                           })}
                           options={getReferenceData(field.refDataKey || field.name)}
+                          valued={field.name === 'cardId' ? location?.state?.cardId : ''}
                         />
                       )
                     })}

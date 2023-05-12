@@ -6,8 +6,11 @@ import Breadcrumbs from '../../components/Common/Breadcrumb'
 import { fetcher } from '../../fetcher'
 import cardsList from '../../mockData/cardsList.js'
 import { get } from '../../helpers/api_helper'
+import { useHistory } from 'react-router-dom'
 
 const Cards = (props) => {
+  const history = useHistory()
+
   const columns = [
     {
       label: 'Card No',
@@ -54,7 +57,9 @@ const Cards = (props) => {
                 borderRadius: '.3rem',
                 background: '#fb6262'
               }}
-              onClick={() => console.log(item)}
+              onClick={() => {
+                history.push('/create-card-holder', { cardId: item.cardNumber })
+              }}
             >
               Allocate
             </div>

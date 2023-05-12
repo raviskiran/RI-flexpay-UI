@@ -64,6 +64,6 @@ export const GET_USERS = '/users'
 export const GET_USER_PROFILE = '/user'
 
 export const GET_ALL_CUSTOMERS = '/listAllCustomers'
-export const GET_ALL_CARD_HOLDERS = '/listAllCardholders'
+export const GET_ALL_CARD_HOLDERS = '/card-holders'
 export const CREATE_CUSTOMER = '/createCustomer'
 export const CREATE_CARD_HOLDER = '/card-holders/create'
