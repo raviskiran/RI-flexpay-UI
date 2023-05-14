@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React, { useEffect, useState } from 'react'
 import Tables from '../Tables/BasicTables'
 import { MDBDataTable } from 'mdbreact'
@@ -8,15 +9,15 @@ import Breadcrumbs from '../../components/Common/Breadcrumb'
 import customerList from '../../mockData/customerList'
 import { fetcher } from '../../fetcher'
 import { get } from '../../helpers/api_helper'
-import { GET_ALL_CUSTOMERS } from '../../helpers/url_helper'
+import { GET_AGENTS } from '../../helpers/url_helper'
 
 export default (props) => {
   const history = useHistory()
 
   const columns = [
     {
-      label: 'Company Name',
-      field: 'companyName',
+      label: 'Name',
+      field: 'name',
       sort: 'asc',
       width: 150
     },
@@ -27,8 +28,8 @@ export default (props) => {
       width: 100
     },
     {
-      label: 'Contact Number',
-      field: 'contactNumber',
+      label: 'Username',
+      field: 'username',
       sort: 'asc',
       width: 200
     },
@@ -42,7 +43,7 @@ export default (props) => {
   const [cardsData, setCardsData] = useState([])
   useEffect(() => {
     // fetcher.get(customerList) //mock
-    get(GET_ALL_CUSTOMERS).then((data) => {
+    get(GET_AGENTS).then((data) => {
       let userData = []
       // api call, then map the data
       data.data.map((item, index) => {
@@ -53,7 +54,7 @@ export default (props) => {
               className="btn btn-secondary waves-effect"
               onClick={() => history.push('/create-card-holder')}
             >
-              <i className="bx bx-link-external"></i> Pay Card
+              <i className="bx bx-link-external"></i> Edit
             </Button>
           </div>
         )

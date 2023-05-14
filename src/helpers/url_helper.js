@@ -67,3 +67,6 @@ export const GET_ALL_CUSTOMERS = '/listAllCustomers'
 export const GET_ALL_CARD_HOLDERS = '/card-holders'
 export const CREATE_CUSTOMER = '/createCustomer'
 export const CREATE_CARD_HOLDER = '/card-holders/create'
+
+export const GET_AGENTS = '/all-agents'
+export const CREATE_AGENT = '/create-agent'
