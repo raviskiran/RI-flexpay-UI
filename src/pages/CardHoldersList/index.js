@@ -12,6 +12,8 @@ import { get } from '../../helpers/api_helper'
 import { GET_ALL_CARD_HOLDERS } from '../../helpers/url_helper'
 
 const CardHoldersList = (props) => {
+  const history = useHistory()
+
   const columns = [
     {
       label: 'First Name',
@@ -36,6 +38,11 @@ const CardHoldersList = (props) => {
       field: 'newCardNumber',
       sort: 'asc',
       width: 270
+    },
+    {
+      label: 'Action',
+      field: 'action',
+      width: 100
     }
   ]
 
@@ -43,7 +50,33 @@ const CardHoldersList = (props) => {
   useEffect(() => {
     //fetcher.get(cardHolderList) //mock
     get(GET_ALL_CARD_HOLDERS).then((data) => {
-      setCardsData(data)
+      let userData = []
+      data.map((item, index) => {
+        // item.id = <div style={{ fontWeight: 'bold', fontSize: '1.2em' }}>{item.id}</div>
+        item.action = (
+          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div
+              className="uil-trash-alt"
+              style={{
+                cursor: 'pointer',
+                color: 'black',
+                fontSize: '.7em',
+                padding: '.5rem',
+                borderRadius: '.3rem',
+                background: '#fb6262'
+              }}
+              onClick={() => {
+                history.push(`/create-card-holder?id=${item.id}`)
+              }}
+            >
+              Edit
+            </div>
+          </div>
+        )
+        userData.push(item)
+      })
+
+      setCardsData(userData)
     })
   }, [])
 

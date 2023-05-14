@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useFormContext, Controller, useForm } from 'react-hook-form'
 import Select from 'react-select'
 import getValue from 'get-value'
@@ -17,7 +17,9 @@ const TextField = ({
   type,
   ...props
 }) => {
-  console.log(valued)
+  useEffect(() => {
+    if (valued) onChange(valued)
+  }, [])
   if (type === 'file') {
     return (
       <div className={`${className} mb-3`}>
@@ -82,26 +84,39 @@ const TextField = ({
 
 // you can use React.forwardRef to pass the ref too
 const SelectField = React.forwardRef(
-  ({ onChange, onBlur, name, label, className, options, required, ...props }, ref) => (
-    <div className={`${className} mb-3`}>
-      <label className={`form-label ${required && 'required'}`}>{label}</label>
-      <Select
-        {...props}
-        onChange={(opt) => {
-          onChange(opt)
-        }}
-        required={required}
-        options={options}
-        classNamePrefix="select2-selection"
-      />
-      <label className="requiredError">{props.error && props.error.message}</label>
-    </div>
-  )
+  ({ onChange, onBlur, name, label, className, options, required, ...props }, ref) => {
+    useEffect(() => {
+      if (props.valued)
+        onChange(
+          options.find((o) => {
+            return o.value === props.valued
+          })
+        )
+    }, [])
+    return (
+      <div className={`${className} mb-3`}>
+        <label className={`form-label ${required && 'required'}`}>{label}</label>
+        <Select
+          {...props}
+          defaultValue={options.find((o) => {
+            return o.value === props.valued
+          })}
+          onChange={(opt) => {
+            onChange(opt)
+          }}
+          required={required}
+          options={options}
+          classNamePrefix="select2-selection"
+        />
+        <label className="requiredError">{props.error && props.error.message}</label>
+      </div>
+    )
+  }
 )
 
 const CommInput = ({ name, type, required, label, valued, ...props }) => {
   const { control, register, setValue, setError, formState } = useFormContext()
-  console.log(name, valued)
+
   switch (type) {
     case 'select':
       return (
@@ -111,6 +126,7 @@ const CommInput = ({ name, type, required, label, valued, ...props }) => {
               <SelectField
                 name={name}
                 label={label}
+                valued={valued}
                 required={required}
                 {...props}
                 {...fieldState}

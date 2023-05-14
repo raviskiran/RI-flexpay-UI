@@ -49,9 +49,8 @@ export default () => {
       get(`card-holders/${cardholderId}`).then((data) => {
         setTimeout(() => {
           setLoading(false)
+          setCardholderData(data.additionalData)
         }, 1000)
-
-        setCardholderData(data.additionalData)
       })
     }
   }, [])

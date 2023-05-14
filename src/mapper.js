@@ -1,6 +1,6 @@
 import { assocPath } from 'ramda'
 
-const fieldsKeyMapper = {
+export const fieldsKeyMapper = {
   email: ['email'],
   cardId: ['cardId'],
   initials: ['cardholder', 'initials'],
@@ -82,9 +82,15 @@ const fieldsKeyMapper = {
   expectedUseOfChannel: ['cardholder', 'employmentDetails', 'expectedUseOfChannel'],
   expectedForeignTransactions: ['cardholder', 'employmentDetails', 'expectedForeignTransactions'],
   foreignCountryMandatory: ['cardholder', 'employmentDetails', 'foreignCountryMandatory'],
-  expectedForeignCountry: ['cardholder', 'employmentDetails', 'expectedForeignCountry']
+  expectedForeignCountry: ['cardholder', 'employmentDetails', 'expectedForeignCountry'],
 
   // document
+
+  //emboss
+  embossLine1: ['cardholder', 'cardPlasticDetails', 'embossLine1'],
+  embossLine2: ['cardholder', 'cardPlasticDetails', 'embossLine2'],
+  mailLine1: ['cardholder', 'cardPlasticDetails', 'mailLine1'],
+  mailLine2: ['cardholder', 'cardPlasticDetails', 'mailLine2']
 }
 
 export const mapFieldsKey = (data) => {
